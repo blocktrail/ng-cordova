@@ -42,7 +42,7 @@ angular.module('ngCordova.plugins.dialogs', [])
         return q.promise;
       },
 
-      prompt: function (message, title, buttonLabels, defaultText) {
+      prompt: function (message, title, buttonLabels, defaultText, isPassword) {
         var q = $q.defer();
 
         if (!$window.navigator.notification) {
@@ -57,7 +57,7 @@ angular.module('ngCordova.plugins.dialogs', [])
         else {
           navigator.notification.prompt(message, function (result) {
             q.resolve(result);
-          }, title, buttonLabels, defaultText);
+          }, title, buttonLabels, defaultText, isPassword);
         }
         return q.promise;
       },
